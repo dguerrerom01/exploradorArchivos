@@ -1,14 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Admin. archivos
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-item>
+    <ion-label (click)="retroceder()">..</ion-label>
+  </ion-item>
+  <ion-list>
+      <ion-item *ngFor="let directorio of directorios" (click)="abrir(directorio)">
+          <ion-icon name='folder' item-start *ngIf="directorio.isDirectory"></ion-icon>
+          <ion-icon name='document' item-start *ngIf="directorio.isFile"></ion-icon>
+          <ion-label>{{directorio.name}}</ion-label>
+      </ion-item>
+  </ion-list>
+
 </ion-content>
