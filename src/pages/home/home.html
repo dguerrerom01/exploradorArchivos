@@ -11,12 +11,17 @@
   <ion-item>
     <ion-label (click)="retroceder()">..</ion-label>
   </ion-item>
-  <ion-list>
-      <ion-item *ngFor="let directorio of directorios" (click)="abrir(directorio)">
-          <ion-icon name='folder' item-start *ngIf="directorio.isDirectory"></ion-icon>
-          <ion-icon name='document' item-start *ngIf="directorio.isFile"></ion-icon>
+  <ion-list *ngFor="let directorio of directorios">
+      <ion-item *ngIf="directorio.isDirectory" (click)="abrir(directorio)">
+          <ion-icon name='folder' item-start ></ion-icon>
           <ion-label>{{directorio.name}}</ion-label>
       </ion-item>
   </ion-list>
+  <ion-list *ngFor="let directorio of directorios">
+    <ion-item *ngIf="directorio.isFile">
+        <ion-icon name='document' item-start ></ion-icon>
+        <ion-label>{{directorio.name}}</ion-label>
+    </ion-item>
+</ion-list>
 
 </ion-content>
